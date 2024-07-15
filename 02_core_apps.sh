@@ -24,6 +24,14 @@ rm -f packages.microsoft.gpg
 sudo apt install code
 sudo rm -f ./code_*_amd64.deb
 
+### VSCode Extensions
+code --install-extension sourcegraph.cody-ai
+code --install-exension ms-python.vscode-pylance
+code --install-extension ms-python.python
+code --install-extension ms-python.pythondebug
+code --install-extension ms.vscode.cpptools
+code --install-extension platformio.platformio-ide
+code --install-extension MarlinFirmware.auto-build
 
 ## Chrome
 sudo flatpak install flathub com.google.Chrome -y 
