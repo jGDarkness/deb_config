@@ -17,9 +17,9 @@
 	<li>click "Close"</li>
 	<li>You may be prompted to run software updates. If so, click 'Yes' or 'Allow' to run the update.</li>
 </ol>
-<BR></BR><BR></BR>
-<ol>>Add user 'jeremy' to sudoers file.
-    <li>>su root</li>
+<BR></BR>
+<ol>Add user 'jeremy' to sudoers file.
+    <li>su root</li>
 	<li>enter password</li>
 	<li>cd /etc</li>
 	<li>sudo nano sudoers</li>
@@ -29,14 +29,15 @@
 	<li>Enter to exit to terminal</li>
     <li>exit</li>
 </ol>
-<BR></BR><BR></BR>
+<BR></BR>
 ### Run the following scripts in sequence and follow any instructions.
-
-01_dependencies.sh
 
 **There is a mandatory reboot at the end of this script. It must happen before running the next script**
 
-02_core_apps.sh
+<ul>Scripts
+	<li>01_dependencies.sh</LI>
+	<li>02_core_apps.sh</li>
+</ul>
 
 **There is a mandatory reboot at the end of this script. It must happen before running the next script**
 

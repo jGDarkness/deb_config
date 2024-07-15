@@ -12,6 +12,8 @@ sudo apt install timeshift -y
 
 ## Git
 sudo apt install git -y
+ssh-keygen -t ed25519 -C "jeremy.g.davenport@gmail.com"
+
 
 
 ## VSCode
