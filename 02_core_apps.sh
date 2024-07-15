@@ -38,6 +38,10 @@ code --install-extension MarlinFirmware.auto-build
 sudo flatpak install flathub md.obsidian.Obsidian -y
 
 
+## VLC
+sudo apt install vlc -y
+
+
 ## Chrome
 sudo flatpak install flathub com.google.Chrome -y 
 
