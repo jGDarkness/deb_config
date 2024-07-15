@@ -33,6 +33,10 @@ code --install-extension platformio.platformio-ide
 code --install-extension MarlinFirmware.auto-build
 
 
+## Color Picker
+sudo apt install color-picker -y
+
+
 ## Remmina
 flatpak install flathub org.remmina.Remmina -y
 
