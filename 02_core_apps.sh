@@ -33,6 +33,11 @@ code --install-extension ms.vscode.cpptools
 code --install-extension platformio.platformio-ide
 code --install-extension MarlinFirmware.auto-build
 
+
+## Obsidian
+sudo flatpak install flathub md.obsidian.Obsidian -y
+
+
 ## Chrome
 sudo flatpak install flathub com.google.Chrome -y 
 
