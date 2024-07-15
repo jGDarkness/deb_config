@@ -44,4 +44,4 @@
 
 # WARNING
 
-There is no error checking in this script as of today.
+There is only basic error checking in place as of today. The scripts have not been tested in full yet, however, each individual command was used to configure the system and develop the script.
