@@ -9,8 +9,11 @@ sudo apt dist-upgrade
 sudo apt autoremove
 
 
+# Make .dotfile directories
+mkdir -p $HOME/.config
+
 ## Install dependencies for my favorite apps
-sudo apt install wget gpg apt-transport-https flatpak gnome-software-plugin-flatpak
+sudo apt install wget gpg apt-transport-https flatpak gnome-software-plugin-flatpak timeshift
 
 
 ## Commands that require reboot:
