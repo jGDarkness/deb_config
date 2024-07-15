@@ -15,7 +15,6 @@ sudo apt install git -y
 ssh-keygen -t ed25519 -C "jeremy.g.davenport@gmail.com"
 
 
-
 ## VSCode
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
@@ -32,6 +31,10 @@ code --install-extension ms-python.pythondebug
 code --install-extension ms.vscode.cpptools
 code --install-extension platformio.platformio-ide
 code --install-extension MarlinFirmware.auto-build
+
+
+## Remmina
+flatpak install flathub org.remmina.Remmina -y
 
 
 ## Obsidian
