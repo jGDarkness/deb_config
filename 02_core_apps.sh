@@ -37,37 +37,37 @@ clear
 # Notify the user of the pending installation/removal of the listed apps.
 echo "The following core applications will be installed and/or customized: "
 echo ""
-echo ***********************************************************************
-echo * App Name to Install            * Source Repository                  *
-echo ***********************************************************************
-echo * Blender                        * apt                                *
-echo * Chrome                         * Flathub                            *
-echo * Color Picker                   * apt                                *
-echo * Nerd Fonts - Jet Brains Mono   * github.com/ryanoasis/nerd-fonts    *
-echo * Dropbox                        * Dropboxstatic.com                  *
-echo * Discord                        * Flathub                            *
-echo * Filezilla                      * apt                            *
-echo * Git                            * apt                                *
-echo * GIMP                           * apt                                *
-echo * GNOME Extension Manager        * Flathub                            *
-echo * Kdenlive                       * Flathub                            *
-echo * Moneydance                     * InfiniteKind.com                   *
-echo * Obsidian                       * Flathub                            *
-echo * PeaZip                         * Flathub                            *
-echo * Remmina                        * Flathub                            *
-echo * Thunderbird                    * Flathub                            *
-echo * VLC                            * apt                                *
-echo * VSCode                         * Packages.Microsoft.com             *
-echo * WPS Office                     * WPSCDN.com                         *
-echo * WPS Office - Missing Fonts     * GitHub Various                     *
-echo ***********************************************************************
+echo "***********************************************************************"
+echo "* App Name to Install            * Source Repository                  *"
+echo "***********************************************************************"
+echo "* Blender                        * apt                                *"
+echo "* Chrome                         * Flathub                            *"
+echo "* Color Picker                   * apt                                *"
+echo "* Nerd Fonts - Jet Brains Mono   * github.com/ryanoasis/nerd-fonts    *"
+echo "* Dropbox                        * Dropboxstatic.com                  *"
+echo "* Discord                        * Flathub                            *"
+echo "* Filezilla                      * apt                                *"
+echo "* Git                            * apt                                *"
+echo "* GIMP                           * apt                                *"
+echo "* GNOME Extension Manager        * Flathub                            *"
+echo "* Kdenlive                       * Flathub                            *"
+echo "* Moneydance                     * InfiniteKind.com                   *"
+echo "* Obsidian                       * Flathub                            *"
+echo "* PeaZip                         * Flathub                            *"
+echo "* Remmina                        * Flathub                            *"
+echo "* Sushi (NautilusPreviewer)      * Flathub                            *"
+echo "* Thunderbird                    * Flathub                            *"
+echo "* VLC                            * apt                                *"
+echo "* VSCode                         * Packages.Microsoft.com             *"
+echo "* WPS Office                     * WPSCDN.com                         *"
+echo "* WPS Office - Missing Fonts     * GitHub Various                     *"
+echo "***********************************************************************"
 echo ""
-echo ***********************************************************************
-echo * App Name to Remove             * Source Repository                  *
-echo ***********************************************************************
-echo * Firefox ESR                    * apt                                *
-echo ***********************************************************************
-
+echo "***********************************************************************"
+echo "* App Name to Remove             * Source Repository                  *"
+echo "***********************************************************************"
+echo "* Firefox ESR                    * apt                                *"
+echo "***********************************************************************"
 sudo apt install blender -y
 
 sudo flatpak install flathub com.google.Chrome -y 
@@ -142,6 +142,8 @@ cd ~
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip 
 sudo unzip JetBrainsMono.zip -d/usr/share/fonts
 sudo rm -f JetBrainsMono.zip
+
+sudo flatpak install flathub org.gnome.NautilusPreviewer -y
 
 sudo apt remove firefox-esr -y
 
