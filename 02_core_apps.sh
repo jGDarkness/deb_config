@@ -46,6 +46,7 @@ echo * Color Picker                   * apt                                *
 echo * Nerd Fonts - Jet Brains Mono   * github.com/ryanoasis/nerd-fonts    *
 echo * Dropbox                        * Dropboxstatic.com                  *
 echo * Discord                        * Flathub                            *
+echo * Filezilla                      * apt                            *
 echo * Git                            * apt                                *
 echo * GIMP                           * apt                                *
 echo * GNOME Extension Manager        * Flathub                            *
@@ -80,6 +81,8 @@ wget https://linux.dropboxstatic.com/packages/debian/dropbox_2024.04.17_amd64.de
 sudo dpkg -i dropbox_2024.04.17_amd64.deb
 sudo rm -f dropbox_2024.04.17_amd64.deb -y
 
+sudo apt install filezilla -y
+
 sudo apt install git -y
 
 sudo apt install gimp -y
@@ -94,6 +97,7 @@ sudo dpkg -i moneydance_linux_amd64.deb
 sudo rm -i moneydance_linux_amd64.deb -y
 
 sudo flatpak install flathub md.obsidian.Obsidian -y
+    # Note that any obsidian plugins you already have installed will be synced on vault open. Restart Obsidian after they all load, and all works.
 
 sudo flatpak install flathub io.github.peazip.PeaZip -y
 

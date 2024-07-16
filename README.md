@@ -38,9 +38,13 @@
 <ul>Scripts
 	<li>01_dependencies.sh</LI>
 	<li>02_core_apps.sh</li>
+	<li>03_security_apps.sh</li>
 </ul>
 
-**There is a mandatory reboot at the end of this script. It must happen before running the next script**
+**There is a mandatory reboot at the end of each script. It must happen before running the next script.**
+
+## Work in Progress:
+03_security_apps is in progress... do not use yet.
 
 # WARNING
 
