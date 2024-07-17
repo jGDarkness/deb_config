@@ -30,8 +30,7 @@ sudo apt install nvidia-driver firmware-misc-nonfree -y
 # kernel.
 
 : <<'END_COMMENT'
-sudo apt -t bookworm-backports install linux-image-amd64 linux-headers-amd64
-
+sudo apt -t bookworm-backports install linux-image-amd64 linux-headers-amd64 -y
 sudo tee -a /etc/apt/preferences << EOF
 Package: linux-image-*
 Pin: release a=bookworm-backports
