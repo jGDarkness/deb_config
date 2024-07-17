@@ -8,19 +8,18 @@ sudo apt upgrade -y
 sudo apt dist-upgrade
 sudo apt autoremove
 
-
 # Make .dotfile directories
 mkdir -p $HOME/.config
 
-## Install dependencies for my favorite apps
-sudo apt install wget gpg apt-transport-https flatpak gnome-software-plugin-flatpak timeshift
+echo "sudo truncate -s 0 /etc/apt/sources.list"
 
+sudo cp sources.list /etc/apt/sources.list.d/sources.list
 
-## Commands that require reboot:
+sudo apt install wget gpg apt-transport-https flatpak gnome-software-plugin-flatpak timeshift linux-headers-amd64 -y
 
-### Rebooting at the end allows the GNOME plugin to integrate with GNOME on DE start.
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
+sudo apt install nvidia-driver firmware-misc-nonfree -y
 
 ## Reboot
 sudo reboot
