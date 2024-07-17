@@ -43,7 +43,8 @@ echo "***********************************************************************"
 echo "* Blender                        * apt                                *"
 echo "* Chrome                         * Flathub                            *"
 echo "* Color Picker                   * apt                                *"
-echo "* Nerd Fonts - Jet Brains Mono   * github.com/ryanoasis/nerd-fonts    *"
+echo "* Curl                           * apt                                *"
+echo "* dconf Editor                   * Flathub                            *"
 echo "* Dropbox                        * Dropboxstatic.com                  *"
 echo "* Discord                        * Flathub                            *"
 echo "* Filezilla                      * apt                                *"
@@ -52,9 +53,11 @@ echo "* GIMP                           * apt                                *"
 echo "* GNOME Extension Manager        * Flathub                            *"
 echo "* Kdenlive                       * Flathub                            *"
 echo "* Moneydance                     * InfiniteKind.com                   *"
+echo "* Nerd Fonts - Jet Brains Mono   * github.com/ryanoasis/nerd-fonts    *"
 echo "* Obsidian                       * Flathub                            *"
 echo "* PeaZip                         * Flathub                            *"
 echo "* Remmina                        * Flathub                            *"
+echo "* Starship                       * Starship.rs                        *"
 echo "* Sushi (NautilusPreviewer)      * Flathub                            *"
 echo "* Thunderbird                    * Flathub                            *"
 echo "* VLC                            * apt                                *"
@@ -73,6 +76,10 @@ sudo apt install blender -y
 sudo flatpak install flathub com.google.Chrome -y 
 
 sudo apt install color-picker -y
+
+sudo apt install curl -y
+
+sudo flatpak install flathub ca.desrt.dconf-editor -y
 
 sudo flatpak install flathub com.discordapp.Discord -y
 
@@ -102,6 +109,8 @@ sudo flatpak install flathub md.obsidian.Obsidian -y
 sudo flatpak install flathub io.github.peazip.PeaZip -y
 
 sudo flatpak install flathub org.remmina.Remmina -y
+
+sudo curl -sS https://starship.rs/install.sh | sudo sh -y
 
 sudo flatpak install flathub org.mozilla.Thunderbird -y
 
@@ -168,9 +177,22 @@ sleep 2
 
 # Update font cache 
 sudo fc-cache -f -v
-setfont -a "/usr/share/fonts/JetBrainsMonoNLNerd-Regular.ttf"
+gsettings set org.gnome.desktop.interface font-name 'JetBrainsMonoNerdFont-Regular 11'
+gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMonoNerdFont-ExtraLight 11'
+dconf reset -f /org/gnome/terminal/legacy/profiles:/
+PROFILE_ID=$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d "'")
+echo "Updating terminal font for profile with ID: $PROFILE_ID (default)"
+dconf write /org/gnome/terminal/legacy/profiles:/:$PROFILE_ID/font "'JetBrainsMono Nerd Font Mono 11'"
+dconf write /org/gnome/terminal/legacy/profiles:/:$PROFILE_ID/use-system-font false
+
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
+echo 'eval "$(starship init bash)"' >> ~/.bashrc
+sudo mkdir -p ~/.config
+sudo cp starship.toml ~/.config/starship.toml
+
 
 # Timeshift backup
 sudo timeshift --create --comments "Fresh install, customized" --tags D
