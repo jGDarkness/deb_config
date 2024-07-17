@@ -1,51 +1,50 @@
-# My repo for configuring Debian 12 the way I like after a clean installation.
-
-## This repo assumes you have just installed Debian Bookworm via .iso file on a USB stick, and have configured nothing else.
-
-### Manual Setup Steps before running automated setup script.
-
-<ol> Add Repos
-	<li>"Option" key</li>
-	<li>In Overview, type "Settings" and press "Enter"</li>
-	<li>Scroll down and click on "About" on the navigation bar.</li>
-	<li>Scroll down and click on "Software Updates"</li>
-	<li>Software app will load. Click on the hamburger menu.</li>
-	<li>select software repositories.</li>
-	<li>On the "Debian Software" tab, check all checkboxes.</li>
-	<li>on the "Developer Options" tab, check "Proposed updates"</li>
-	<li>On the "Other Software" tab, delete the entry that contains a reference to the Debian installation CD.</li>
-	<li>click "Close"</li>
-	<li>You may be prompted to run software updates. If so, click 'Yes' or 'Allow' to run the update.</li>
-</ol>
-<BR></BR>
-<ol>Add user 'jeremy' to sudoers file.
-    <li>su root</li>
-	<li>enter password</li>
-	<li>cd /etc</li>
-	<li>sudo nano sudoers</li>
-	<li>add: "jeremy" with matching parameters under "root" near the end of the file.</li>
-	<li>CTRL + X to exit</li>
-	<li>'y' to safe buffer</li>
-	<li>Enter to exit to terminal</li>
-    <li>exit</li>
-</ol>
-<BR></BR>
-
-### Run the following scripts in sequence and follow any instructions.
-
-**There is a mandatory reboot at the end of this script. It must happen before running the next script**
-
-<ul>Scripts
-	<li>01_dependencies.sh</LI>
-	<li>02_core_apps.sh</li>
-	<li>03_security_apps.sh</li>
-</ul>
-
-**There is a mandatory reboot at the end of each script. It must happen before running the next script.**
-
-## Work in Progress:
-03_security_apps is in progress... do not use yet.
+# deb_custom
+This repo sets up my system the way I like, should I need a fresh installation and configuration. 
 
 # WARNING
-
 There is only basic error checking in place as of today. The scripts have not been tested in full yet, however, each individual command was used to configure the system and develop the script.
+
+## Distribution
+Debian 12 Bookworm
+
+## Kernel
+Default is for Bookworm Stable, however, there is a pair of lines that can be switched (commented / uncommented) in order
+to switch to the Bookworm Backports kernel. 
+
+### Pre-requisites
+
+<ol>
+<li>Debian Bookworm ISO (or CD image) written to a USB stick with a tool such as Balena Etcher, which is my personal preference.</li>
+<li>Install the distribution onto the target machine or virtual machine.</li>
+<li>I prefer to configure both a root account and a personal user account with the username: jeremy </li>
+<li>Add the regular user account to the sudoers file.
+'''sh
+su root
+sudo usermod -aG sudo jeremy
+'''
+If this method is not successful, a less preferred way is to add the user account to the sudoers file manually. The file is 
+located at /etc/sudoers.
+</li>
+</ol>
+
+### Proceed with Configuration and Customization
+<ol>
+<li>Run
+'''sh
+sudo chmod +x 01_dependencies.sh
+sudo /.01_dependencies.sh
+'''
+The system will automatically reboot after this script runs.
+</li>
+<li>Run
+'''sh
+sudo chmod +x 02_core_apps.sh
+sudo /.02_core_apps.sh
+'''
+The process could require some user response interaction to complete, and the system will automatically reboot after this
+script runs.
+</li>
+</ol>
+
+### Work In Progress
+The '03_security_apps.sh' script is currently in progress... do not use yet.
