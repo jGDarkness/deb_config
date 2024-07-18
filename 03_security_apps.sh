@@ -22,6 +22,10 @@ sudo ufw allow 22/udp
 # Minecraft server ports
 sudo ufw allow 25565/tcp
 sudo ufw allow 25565/udp
+sudo ufw allow 19132/tcp
+sudo ufw allow 19132/udp
+sudo ufw allow 8123/tcp
+sudo ufw allow 8123/udp
 
 # Apache webserver ports
 sudo ufw allow 80/tcp
@@ -32,6 +36,7 @@ sudo ufw status verbose
 
 # Install Apache web server
 sudo apt update
+sudo apt upgrade -y
 sudo apt install -y apache2
 sudo systemctl start apache2
 sudo systemctl enable apache2
@@ -40,7 +45,7 @@ sudo systemctl status apache2
 # Create bookmark in Nautilus for Apache web server files main directory
 mkdir -p ~/.config/gtk-3.0
 echo "[Bookmarks]" > ~/.config/gtk-3.0/bookmarks
-echo "file:///var/www/html Apache Web Server Files" >> ~/.config/gtk-3.0/bookmarks
+echo "file:///var/www/html" >> ~/.config/gtk-3.0/bookmarks
 
 # Ensure the user has access to the Apache directory
 sudo usermod -a -G www-data $USER
