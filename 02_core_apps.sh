@@ -6,6 +6,14 @@ if [ "$EUID" -ne 0 ]; then
     exit 1 
 fi
 
+sudo xdotool getactivewindow windowsize 100% 100%
+
+sudo cp images/jgd_debian_avatar.png /home/$USER/.face
+sudo cp images/jgd_debian_avatar.png /home/$USER/.face.icon
+sudo mkdir -p /usr/share/backgrounds
+sudo cp images/jgd_debian_wallpaper.png /usr/share/backgrounds/
+sudo dconf write /org/gnome/desktop/background/picture-uri "'file:///usr/share/backgrounds/jgd_debian_wallpaper.png'"
+
 # This script should be run after 01_dependencies.sh
 # Check if dependencies from 01_dependencies.sh are installed.
 check_dependency() {
@@ -16,6 +24,8 @@ check_dependency() {
 }
 
 # Check for required dependencies
+check_dependency "imagemagick"
+check_dependency "xdotool"
 check_dependency "wget"
 check_dependency "gpg"
 check_dependency "flatpak"
@@ -42,8 +52,10 @@ echo "* App Name to Install            * Source Repository                  *"
 echo "***********************************************************************"
 echo "* Blender                        * apt                                *"
 echo "* Chrome                         * Flathub                            *"
+echo "* Clipboard                      * Github                             *"
 echo "* Color Picker                   * apt                                *"
 echo "* Curl                           * apt                                *"
+echo "* Dash to Dock Extension         * Github                             *"
 echo "* dconf Editor                   * Flathub                            *"
 echo "* Dropbox                        * Dropboxstatic.com                  *"
 echo "* Discord                        * Flathub                            *"
@@ -51,6 +63,7 @@ echo "* Filezilla                      * apt                                *"
 echo "* Git                            * apt                                *"
 echo "* GIMP                           * apt                                *"
 echo "* GNOME Extension Manager        * Flathub                            *"
+echo "* Just Perfection Extension      * Github                             *"
 echo "* Kdenlive                       * Flathub                            *"
 echo "* Moneydance                     * InfiniteKind.com                   *"
 echo "* Nerd Fonts - Jet Brains Mono   * github.com/ryanoasis/nerd-fonts    *"
@@ -59,6 +72,7 @@ echo "* PeaZip                         * Flathub                            *"
 echo "* Remmina                        * Flathub                            *"
 echo "* Starship                       * Starship.rs                        *"
 echo "* Sushi (NautilusPreviewer)      * Flathub                            *"
+echo "* TilingShell                    * Github                             *"
 echo "* Thunderbird                    * Flathub                            *"
 echo "* VLC                            * apt                                *"
 echo "* VSCode                         * Packages.Microsoft.com             *"
@@ -71,6 +85,24 @@ echo "* App Name to Remove             * Source Repository                  *"
 echo "***********************************************************************"
 echo "* Firefox ESR                    * apt                                *"
 echo "***********************************************************************"
+echo ()
+echo ()
+echo "Installation will begin in:"
+echo "Type 's' to begin immediately, or wait for the countdown."
+for i in {20..1}
+do
+   echo -ne "\r$i "
+   read -t 1 -n 1 input
+   if [[ "$input" == "s" ]]; then
+       echo -e "\nStarting installation..."
+       break
+   fi
+done
+
+if [[ $i -eq 0 ]]; then
+   echo -e "\rStarting installation..."
+fi
+
 sudo apt install blender -y
 
 sudo flatpak install flathub com.google.Chrome -y 
@@ -193,7 +225,6 @@ echo 'eval "$(starship init bash)"' >> ~/.bashrc
 sudo mkdir -p ~/.config
 sudo cp starship.toml ~/.config/starship.toml
 
-
 # Timeshift backup
 sudo timeshift --create --comments "Fresh install, customized" --tags D
 sleep 2
@@ -203,6 +234,10 @@ echo "A system snapshot has been captured with the new configuration."
 sleep 2
 
 echo "The system needs to reboot now to finalize the updated configurations of all apps."
+echo ""
+sleep 2
+echo "Don't forget to open Extension Manager after rebooting the machine to enable and configure installed extensions."
+echo ""
 read -p "Enter 'yes' to continue with the reboot: " reboot_input
 while true; do
     read -p "Enter 'yes' to continue with the reboot: " reboot_input

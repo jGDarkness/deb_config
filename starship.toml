@@ -27,7 +27,7 @@ truncation_symbol = "…/"
 "Pictures" = " "
 
 [git_branch]
-symbol = "⎇"
+symbol = "branch ⦒"
 style = "bg:#394260"
 format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
 
@@ -43,12 +43,13 @@ format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 [python]
 symbol = "🐍"
 python_binary = "python3"
-pyenv_version_name = true
+pyenv_version_name = false
+version_format = 'v${raw}'
 style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+format = '[[ via ${symbol} ${pyenv_prefix}(${version} )(\($virtualenv\) )](fg:#769ff0 bg:#212736)]($style)'
 
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#1d2230"
-format = '[[ ⏰ $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+format = '[[ ⏲ $time ](fg:#a0a9cb bg:#1d2230)]($style)'
