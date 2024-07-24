@@ -52,17 +52,17 @@ echo "* App Name to Install            * Source Repository                  *"
 echo "***********************************************************************"
 echo "* Blender                        * apt                                *"
 echo "* Chrome                         * Flathub                            *"
-echo "* Clipboard                      * Github                             *"
+echo "* Clipboard                      * Github                     ON HOLD *"
 echo "* Color Picker                   * apt                                *"
 echo "* Curl                           * apt                                *"
-echo "* Dash to Dock Extension         * Github                             *"
+echo "* Dash to Dock Extension         * Github                     ON HOLD *"
 echo "* dconf Editor                   * Flathub                            *"
 echo "* Dropbox                        * Dropboxstatic.com                  *"
 echo "* Discord                        * Flathub                            *"
 echo "* Filezilla                      * apt                                *"
 echo "* Git                            * apt                                *"
 echo "* GIMP                           * apt                                *"
-echo "* Just Perfection Extension      * Github                             *"
+echo "* Just Perfection Extension      * Github                     ON HOLD *"
 echo "* Kdenlive                       * Flathub                            *"
 echo "* Moneydance                     * InfiniteKind.com                   *"
 echo "* Nerd Fonts - Jet Brains Mono   * github.com/ryanoasis/nerd-fonts    *"
@@ -71,7 +71,7 @@ echo "* PeaZip                         * Flathub                            *"
 echo "* Remmina                        * Flathub                            *"
 echo "* Starship                       * Starship.rs                        *"
 echo "* Sushi (NautilusPreviewer)      * Flathub                            *"
-echo "* Tiling Shell                    * Github                             *"
+echo "* Tiling Shell                    * Github                    ON HOLD *"
 echo "* Thunderbird                    * Flathub                            *"
 echo "* VLC                            * apt                                *"
 echo "* VSCode                         * Packages.Microsoft.com             *"
@@ -124,25 +124,6 @@ sudo apt install filezilla -y
 sudo apt install git -y
 
 sudo apt install gimp -y
-
-# GNOME Extensions
-sudo chown -R $USER:$USER ~/.local/share/gnome-shell/extensions
-if [ -d ~/.local/share/gnome-shell/extensions ]; then
-    sudo -s rm -rf ~/.local/share/gnome-shell/extensions
-fi
-sudo -s mkdir -p ~/.local/share/gnome-shell/extensions
-sudo -s cp -r working_extensions/* ~/.local/share/gnome-shell/extensions/
-# Enable all GNOME extensions in the ~/.local/share/gnome-shell/extensions folder
-for extension in ~/.local/share/gnome-shell/extensions/*; do
-    if [ -d "$extension" ]; then
-        uuid=$(sudo grep -oP '(?<="uuid": ")[^"]*' "$extension/metadata.json")
-        if [ -n "$uuid" ]; then
-            current_extensions=$(gsettings get org.gnome.shell enabled-extensions)
-            new_extensions=$(echo "$current_extensions" | sed 's/]/, "'$uuid'"]/')
-            gsettings set org.gnome.shell enabled-extensions "$new_extensions"
-        fi
-    fi
-done
 
 sudo flatpak install flathub org.kde.kdenlive -y
 
