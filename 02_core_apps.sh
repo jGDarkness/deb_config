@@ -130,6 +130,8 @@ sudo rm -f dropbox_2024.04.17_amd64.deb
 
 sudo apt install filezilla -y
 sudo apt install git -y
+git config --global user.name "jGDarkness"
+git config --global user.email "jeremy.g.davenport@gmail.com"
 sudo apt install gimp -y
 sudo flatpak install flathub org.kde.kdenlive -y
 
@@ -186,6 +188,7 @@ sudo flatpak install flathub org.gnome.NautilusPreviewer -y
 sudo apt remove firefox-esr -y
 
 ssh-keygen -t ed25519 -C "jeremy.g.davenport@gmail.com"
+ssh-add ~/.ssh/id_ed25519
 
 sudo apt autoremove
 sleep 2
