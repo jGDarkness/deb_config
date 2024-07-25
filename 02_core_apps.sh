@@ -163,6 +163,7 @@ code --install-extension ms-python.pythondebug
 code --install-extension ms.vscode.cpptools
 code --install-extension platformio.platformio-ide
 code --install-extension MarlinFirmware.auto-build
+code --install-extension seanwu.vscode-qt-for-python
 
 # WPS Office
 wget https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/linux/11720/wps-office_11.1.0.11720.XA_amd64.deb
