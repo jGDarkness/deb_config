@@ -81,10 +81,12 @@ echo "* Moneydance                     * InfiniteKind.com                   *"
 echo "* Nerd Fonts - Jet Brains Mono   * github.com/ryanoasis/nerd-fonts    *"
 echo "* Obsidian                       * Flathub                            *"
 echo "* PeaZip                         * Flathub                            *"
+echo "* Proton GE                      * GitHub                             *"
 echo "* Remmina                        * Flathub                            *"
 echo "* Starship                       * Starship.rs                        *"
+echo "* Steam                          * Flathub                            *"
 echo "* Sushi (NautilusPreviewer)      * Flathub                            *"
-echo "* Tiling Shell                    * Github                    ON HOLD *"
+echo "* Tiling Shell                   * Github                    ON HOLD  *"
 echo "* Thunderbird                    * Flathub                            *"
 echo "* VLC                            * apt                                *"
 echo "* VSCode                         * Packages.Microsoft.com             *"
@@ -147,6 +149,11 @@ sudo curl -sS https://starship.rs/install.sh | sudo sh
 sudo flatpak install flathub org.mozilla.Thunderbird -y
 sudo apt install vlc vlc-plugin-fluidsynth vlc-plugin-jack vlc-plugin-pipewire vlc-plugin-svg libdvdcss2 -y
 sudo dpkg-reconfigure libdvd-pkg
+
+# Steam and Proton GE
+sudo flatpak install flathub com.valvesoftware.Steam -y
+sudo flatpak install com.valvesoftware.Steam.CompatibilityTool.Proton-GE -y
+sudo apt install steam-devices
 
 # VSCode
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
