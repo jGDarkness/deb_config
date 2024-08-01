@@ -82,6 +82,7 @@ echo "* Nerd Fonts - Jet Brains Mono   * github.com/ryanoasis/nerd-fonts    *"
 echo "* Obsidian                       * Flathub                            *"
 echo "* PeaZip                         * Flathub                            *"
 echo "* Proton GE                      * GitHub                             *"
+echo "* Qt Designer                    * Qt.io                           *"
 echo "* Remmina                        * Flathub                            *"
 echo "* Starship                       * Starship.rs                        *"
 echo "* Steam                          * Flathub                            *"
@@ -144,6 +145,10 @@ sudo rm -i moneydance_linux_amd64.deb -y
 
 sudo flatpak install flathub md.obsidian.Obsidian -y
 sudo flatpak install flathub io.github.peazip.PeaZip -y
+
+sudo chmod +x installers/qt-online-installer-linux-x64-4.8.0.run
+sudo ./installers/qt-online-installer-linux-x64-4.8.0.run
+
 sudo flatpak install flathub org.remmina.Remmina -y
 sudo curl -sS https://starship.rs/install.sh | sudo sh
 sudo flatpak install flathub org.mozilla.Thunderbird -y
