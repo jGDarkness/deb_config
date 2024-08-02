@@ -89,6 +89,7 @@ echo "* Steam                          * Flathub                            *"
 echo "* Sushi (NautilusPreviewer)      * Flathub                            *"
 echo "* Tiling Shell                   * Github                    ON HOLD  *"
 echo "* Thunderbird                    * Flathub                            *"
+echo "* VirtualBox                     * Oracle.com                         *"
 echo "* VLC                            * apt                                *"
 echo "* VSCode                         * Packages.Microsoft.com             *"
 echo "* WPS Office                     * WPSCDN.com                         *"
@@ -176,6 +177,11 @@ code --install-extension ms.vscode.cpptools
 code --install-extension platformio.platformio-ide
 code --install-extension MarlinFirmware.auto-build
 code --install-extension seanwu.vscode-qt-for-python
+
+wget https://download.virtualbox.org/virtualbox/7.0.20/virtualbox-7.0_7.0.20-163906~Debian~bookworm_amd64.deb
+sudo dpkg -i virtualbox-7.0_7.0.20-163906~Debian~bookworm_amd64.deb
+sudo rm -f virtualbox-7.0_7.0.20-163906~Debian~bookworm_amd64.deb
+sudo usermod -aG vboxusers $USER
 
 # WPS Office
 wget https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/linux/11720/wps-office_11.1.0.11720.XA_amd64.deb

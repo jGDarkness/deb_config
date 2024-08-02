@@ -33,6 +33,7 @@ sudo cp sources.list /etc/apt/sources.list.d/sources.list
 sudo apt update
 sudo apt upgrade -y
 sudo apt install curl wget gpg apt-transport-https flatpak gnome-software-plugin-flatpak timeshift linux-headers-amd64 xdotool imagemagick chrome-gnome-shell gnome-shell-extension-manager -y
+sudo apt install libqt5sql5 libqt5help5 libqt5opengl5 libqt5printsupport5 libqt5xml5 -y
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 sudo apt install nvidia-driver firmware-misc-nonfree -y
 
