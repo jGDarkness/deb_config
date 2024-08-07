@@ -82,7 +82,7 @@ echo "* Nerd Fonts - Jet Brains Mono   * github.com/ryanoasis/nerd-fonts    *"
 echo "* Obsidian                       * Flathub                            *"
 echo "* PeaZip                         * Flathub                            *"
 echo "* Proton GE                      * GitHub                             *"
-echo "* Qt Designer                    * Qt.io                           *"
+echo "* Qt Designer                    * Flathub                            *"
 echo "* Remmina                        * Flathub                            *"
 echo "* Starship                       * Starship.rs                        *"
 echo "* Steam                          * Flathub                            *"
@@ -94,6 +94,7 @@ echo "* VLC                            * apt                                *"
 echo "* VSCode                         * Packages.Microsoft.com             *"
 echo "* WPS Office                     * WPSCDN.com                         *"
 echo "* WPS Office - Missing Fonts     * GitHub Various                     *"
+echo "* Zoom                           * Flathub                            *"
 echo "***********************************************************************"
 echo ""
 echo "***********************************************************************"
@@ -147,8 +148,7 @@ sudo rm -i moneydance_linux_amd64.deb -y
 sudo flatpak install flathub md.obsidian.Obsidian -y
 sudo flatpak install flathub io.github.peazip.PeaZip -y
 
-sudo chmod +x installers/qt-online-installer-linux-x64-4.8.0.run
-sudo ./installers/qt-online-installer-linux-x64-4.8.0.run
+sudo flatpak install flathub io.qt.Designer -y
 
 sudo flatpak install flathub org.remmina.Remmina -y
 sudo curl -sS https://starship.rs/install.sh | sudo sh
@@ -208,6 +208,8 @@ sudo apt remove firefox-esr -y
 
 ssh-keygen -t ed25519 -C "jeremy.g.davenport@gmail.com"
 ssh-add ~/.ssh/id_ed25519
+
+sudo flatpak install flathub us.zoom.Zoom -y
 
 sudo apt autoremove
 sleep 2
