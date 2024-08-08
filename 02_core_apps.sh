@@ -190,6 +190,7 @@ code --install-extension seanwu.vscode-qt-for-python
 code --install-extension drewxs.tokyo-night-dark
 code --install-extension ziglang.vscode-zig
 
+sudo apt install libqt5opengl5 libqt5printsupport5 libqt5xml5 -y
 wget https://download.virtualbox.org/virtualbox/7.0.20/virtualbox-7.0_7.0.20-163906~Debian~bookworm_amd64.deb
 sudo dpkg -i virtualbox-7.0_7.0.20-163906~Debian~bookworm_amd64.deb
 sudo rm -f virtualbox-7.0_7.0.20-163906~Debian~bookworm_amd64.deb
