@@ -170,6 +170,16 @@ sudo apt update
 sudo apt install code
 sudo rm -f ./code_*_amd64.deb
 code --install-extension sourcegraph.cody-ai
+code --install-extension ms-vscode.cpptools
+code --install-extension sidthesloth.html5-boilerplate
+code --install-extension ecmel.vscode-html-css
+code --install-extension george-alisson.html-preview-vscode
+code --install-extension ms-toolsai.jupyter
+code --install-extension ms-toolsai.vscode-jupyter-cell-tags
+code --install-extension ms-toolsai.jupyter-keymap
+code --install-extension ms-toolsai.jupyter-renderers
+code --install-extension ms-toolsai.vscode-jupyter-powertoys
+code --install-extension ms-toolsai.vscode-jupyter-slideshow
 code --install-exension ms-python.vscode-pylance
 code --install-extension ms-python.python
 code --install-extension ms-python.pythondebug
@@ -177,6 +187,8 @@ code --install-extension ms.vscode.cpptools
 code --install-extension platformio.platformio-ide
 code --install-extension MarlinFirmware.auto-build
 code --install-extension seanwu.vscode-qt-for-python
+code --install-extension drewxs.tokyo-night-dark
+code --install-extension ziglang.vscode-zig
 
 wget https://download.virtualbox.org/virtualbox/7.0.20/virtualbox-7.0_7.0.20-163906~Debian~bookworm_amd64.deb
 sudo dpkg -i virtualbox-7.0_7.0.20-163906~Debian~bookworm_amd64.deb
