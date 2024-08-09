@@ -3,14 +3,24 @@ This repo sets up my system the way I like, should I need a fresh installation a
 
 # WARNING
 There is only basic error checking in place as of today. The scripts have not been tested in full yet, however, each 
-individual command was used to configure the system and develop the script.
+individual command was used to configure the system and develop the script. The gui is currently a design only, and is
+not complete.
 
 ## Distribution
-Debian 12 Bookworm
+Debian (bookworm / stable)
+
+## Desktop Environment
+GNOME 43.9 or newer, depending on how recently the bookworm ISO is used. I'm using one from May 2024.
 
 ## Kernel
+### Bash Script
 Default is for Bookworm Stable, however, there is block of code that can be commented / uncommented in order to set 
 preference for the stable or backport kernel.
+
+### Graphical User Interface - Design only as of now.
+The initial gui design for the dependencies script has been created with Qt Designer. It is in the gui/ directory.
+The gui will allow the user to decide whether or not to upgrade to the latest bookworm backport kernel with a checkbox.
+At this point, all other dependencies are mandatorily installed.
 
 ### Pre-requisites
 
