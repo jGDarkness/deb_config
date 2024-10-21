@@ -344,7 +344,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
         </widget>
         <widget class="QCheckBox" name="chkBackportKernel">
          <property name="enabled">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
          <property name="geometry">
           <rect>
