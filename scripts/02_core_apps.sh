@@ -21,11 +21,10 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
-sudo xdotool getactivewindow windowsize 100% 100%
-sudo cp images/jgd_debian_avatar.png /home/$USER/.face
-sudo cp images/jgd_debian_avatar.png /home/$USER/.face.icon
+sudo cp ~/Downloads/deb_config/images/jgd_debian_avatar.png /home/$USER/.face
+sudo cp ~/Downloads/deb_config/images/jgd_debian_avatar.png /home/$USER/.face.icon
 sudo mkdir -p /usr/share/backgrounds
-sudo cp images/jgd_debian_wallpaper.png /usr/share/backgrounds/
+sudo cp ~/Downloads/deb_config/images/jgd_debian_wallpaper.png /usr/share/backgrounds/
 
 # This script should be run after 01_dependencies.sh
 # Check if dependencies from 01_dependencies.sh are installed.
@@ -37,8 +36,6 @@ check_dependency() {
 }
 
 # Check for required dependencies
-check_dependency "imagemagick"
-check_dependency "xdotool"
 check_dependency "wget"
 check_dependency "gpg"
 check_dependency "flatpak"
@@ -63,7 +60,6 @@ echo ""
 echo "***********************************************************************"
 echo "* App Name to Install            * Source Repository                  *"
 echo "***********************************************************************"
-echo "* Blender                        * apt                                *"
 echo "* Chrome                         * Flathub                            *"
 echo "* Clipboard                      * Extension Manager/Flathub          *"
 echo "* Color Picker                   * apt                                *"
@@ -82,18 +78,12 @@ echo "* Nerd Fonts - Jet Brains Mono   * github.com/ryanoasis/nerd-fonts    *"
 echo "* Obsidian                       * Flathub                            *"
 echo "* PeaZip                         * Flathub                            *"
 echo "* Proton GE                      * GitHub                             *"
-echo "* Qt Designer                    * Flathub                            *"
-echo "* Remmina                        * Flathub                            *"
-echo "* Starship                       * Starship.rs                        *"
 echo "* Steam                          * Flathub                            *"
 echo "* Sushi (NautilusPreviewer)      * Flathub                            *"
 echo "* Tiling Shell                   * Extension Manager/Flathub          *"
 echo "* Thunderbird                    * Flathub                            *"
-echo "* VirtualBox                     * Oracle.com                         *"
 echo "* VLC                            * apt                                *"
 echo "* VSCode                         * Packages.Microsoft.com             *"
-echo "* WPS Office                     * WPSCDN.com                         *"
-echo "* WPS Office - Missing Fonts     * GitHub Various                     *"
 echo "* Zoom                           * Flathub                            *"
 echo "***********************************************************************"
 echo ""
@@ -121,7 +111,6 @@ if [[ $i -eq 0 ]]; then
    sleep (3)
 fi
 
-sudo apt install blender -y
 sudo flatpak install flathub com.google.Chrome -y 
 sudo apt install color-picker -y
 sudo apt install curl -y
@@ -135,8 +124,8 @@ sudo rm -f dropbox_2024.04.17_amd64.deb
 
 sudo apt install filezilla -y
 sudo apt install git -y
-git config --global user.name "jGDarkness"
-git config --global user.email "jeremy.g.davenport@gmail.com"
+`git config --global user.name "jGDarkness"
+git config --global user.email "jeremy.g.davenport@gmail.com"`
 sudo apt install gimp -y
 sudo flatpak install flathub org.kde.kdenlive -y
 
@@ -148,9 +137,6 @@ sudo rm -i moneydance_linux_amd64.deb -y
 sudo flatpak install flathub md.obsidian.Obsidian -y
 sudo flatpak install flathub io.github.peazip.PeaZip -y
 
-sudo flatpak install flathub io.qt.Designer -y
-
-sudo flatpak install flathub org.remmina.Remmina -y
 sudo curl -sS https://starship.rs/install.sh | sudo sh
 sudo flatpak install flathub org.mozilla.Thunderbird -y
 sudo apt install vlc vlc-plugin-fluidsynth vlc-plugin-jack vlc-plugin-pipewire vlc-plugin-svg libdvdcss2 -y
@@ -169,7 +155,6 @@ rm -f packages.microsoft.gpg
 sudo apt update
 sudo apt install code
 sudo rm -f ./code_*_amd64.deb
-code --install-extension sourcegraph.cody-ai
 code --install-extension ms-vscode.cpptools
 code --install-extension sidthesloth.html5-boilerplate
 code --install-extension ecmel.vscode-html-css
@@ -183,33 +168,9 @@ code --install-extension ms-toolsai.vscode-jupyter-slideshow
 code --install-exension ms-python.vscode-pylance
 code --install-extension ms-python.python
 code --install-extension ms-python.pythondebug
-code --install-extension ms.vscode.cpptools
 code --install-extension platformio.platformio-ide
 code --install-extension MarlinFirmware.auto-build
-code --install-extension seanwu.vscode-qt-for-python
 code --install-extension drewxs.tokyo-night-dark
-code --install-extension ziglang.vscode-zig
-
-sudo apt install libqt5opengl5 libqt5printsupport5 libqt5xml5 -y
-wget https://download.virtualbox.org/virtualbox/7.0.20/virtualbox-7.0_7.0.20-163906~Debian~bookworm_amd64.deb
-sudo dpkg -i virtualbox-7.0_7.0.20-163906~Debian~bookworm_amd64.deb
-sudo rm -f virtualbox-7.0_7.0.20-163906~Debian~bookworm_amd64.deb
-sudo usermod -aG vboxusers $USER
-
-# WPS Office
-wget https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/linux/11720/wps-office_11.1.0.11720.XA_amd64.deb
-cd /home/jeremy/Downloads
-sudo dpkg -i wps-office_11.1.0.11720.XA_amd64.deb
-sudo rm -f wps-office_11.1.0.11720.XA_amd64.deb
-wget https://raw.githubusercontent.com/justrajdeep/fonts/master/Wingdings.ttf
-wget https://raw.githubusercontent.com/justrajdeep/fonts/master/Wingdings%202.ttf
-wget https://raw.githubusercontent.com/justrajdeep/fonts/master/Wingdings%203.ttf
-wget https://raw.githubusercontent.com/justrajdeep/fonts/master/Webdings.ttf
-wget https://raw.githubusercontent.com/justrajdeep/fonts/master/Symbol.ttf
-wget https://raw.githubusercontent.com/dv-anomaly/ttf-wps-fonts/master/mtextra.ttf
-sudo *.ttf /usr/share/fonts/wps-office
-cd /home/jeremy/Downloads
-sudo rm -f *.ttf
 
 # Nerd Fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip 

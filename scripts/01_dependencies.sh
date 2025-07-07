@@ -29,26 +29,31 @@ sudo apt autoremove -y
 # Make .dotfile directories
 sudo mkdir -p $HOME/.config
 sudo truncate -s 0 /etc/apt/sources.list
-sudo cp sources.list /etc/apt/sources.list.d/sources.list
+sudo cp ~/Downloads/deb_config/config/sources.list ~/.config/sources.list
+sudo cp ~/Downloads/deb_config/config/sources.list /etc/apt/sources.list.d/sources.list
+sudo cp ~/Downloads/deb_config/config/starship.toml ~/.config/starship.toml
+sudo eval "#$(starship init bash)" >> ~/.bashrc
+export STARSHIP_CONFIG=$HOME/.config/starship.toml
+
 sudo apt update
 sudo apt upgrade -y
-sudo apt install curl wget gpg apt-transport-https flatpak gnome-software-plugin-flatpak timeshift linux-headers-amd64 xdotool imagemagick chrome-gnome-shell gnome-shell-extension-manager -y
-sudo apt install libqt5sql5 libqt5help5 libqt5opengl5 libqt5printsupport5 libqt5xml5 -y
+sudo apt install curl wget gpg apt-transport-https flatpak gnome-software-plugin-flatpak timeshift linux-headers-amd64 chrome-gnome-shell gnome-shell-extension-manager starship -y
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 
 # Uncomment this line to install the proprietary Nvidia driver. This fails back to Xll and there will be no Wayland Support.
 #sudo apt install nvidia-driver firmware-misc-nonfree -y
 
-sudo apt -t bookworm-backports install linux-image-amd64 linux-headers-amd64 -y
-sudo tee -a /etc/apt/preferences << EOF
-Package: linux-image-*
-Pin: release a=bookworm-backports
-Pin-Priority: 500
+# Uncomment the lines below once Trixie is released to install the latest kernel from backports.
+#sudo apt -t bookworm-backports install linux-image-amd64 linux-headers-amd64 -y
+#sudo tee -a /etc/apt/preferences << EOF
+#Package: linux-image-*
+#Pin: release a=bookworm-backports
+#Pin-Priority: 500
 
-Package: linux-headers-*
-Pin: release a=bookworm-backports
-Pin-Priority: 500
-EOF
+#Package: linux-headers-*
+#Pin: release a=bookworm-backports
+#Pin-Priority: 500
+#EOF
 
 sudo reboot
