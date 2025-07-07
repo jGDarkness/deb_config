@@ -31,8 +31,8 @@ sudo mkdir -p $HOME/.config
 sudo truncate -s 0 /etc/apt/sources.list
 sudo cp ~/Downloads/deb_config/config/sources.list ~/.config/sources.list
 sudo cp ~/Downloads/deb_config/config/sources.list /etc/apt/sources.list.d/sources.list
-sudo cp ~/Downloads/deb_config/config/starship.toml ~/.config/starship.toml
-sudo eval "#$(starship init bash)" >> ~/.bashrc
+sudo cp ~/Dropbox/deb_config/config/starship.toml ~/.config/starship.toml
+echo 'eval "$(starship init bash)"' >> ~/.bashrc
 export STARSHIP_CONFIG=$HOME/.config/starship.toml
 
 sudo apt update
