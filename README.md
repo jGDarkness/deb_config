@@ -7,25 +7,20 @@ individual command was used to configure the system and develop the script. The 
 not complete.
 
 ## Distribution
-Debian (bookworm / stable)
+Debian (trixie / testing)
 
 ## Desktop Environment
-GNOME 43.9 or newer, depending on how recently the bookworm ISO is used. I'm using one from May 2024.
+GNOME 48 or newer, depending on how recently the trixie ISO is used.
 
 ## Kernel
 ### Bash Script
-Default is for Bookworm Stable, however, there is block of code that can be commented / uncommented in order to set 
+Default is for trixie (testing), however, there is block of code that can be commented / uncommented in order to set 
 preference for the stable or backport kernel.
-
-### Graphical User Interface - Design only as of now.
-The initial gui design for the dependencies script has been created with Qt Designer. It is in the gui/ directory.
-The gui will allow the user to decide whether or not to upgrade to the latest bookworm backport kernel with a checkbox.
-At this point, all other dependencies are mandatorily installed.
 
 ### Pre-requisites
 
 <ol>
-<li>Debian Bookworm ISO (or CD image) written to a USB stick with a tool such as Balena Etcher, which is my personal 
+<li>Debian Trixie ISO (or CD image) written to a USB stick with a tool such as Balena Etcher, which is my personal 
 preference.</li>
 <li>Install the distribution onto the target machine or virtual machine.</li>
 <li>I prefer to configure both a root account and a personal user account with the username: jeremy </li>
